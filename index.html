@@ -119,6 +119,7 @@ Craft FHIR-first systems!
 
 ### [FHIR® meetup: #Profiling](https://bit.ly/3csDKLj)
 
+---
 
 * Rick Geimer, Lantana Consulting Group
 * Mark Kramer, MITRE’s Health Innovation Center
@@ -135,13 +136,34 @@ Craft FHIR-first systems!
 
 <section data-markdown><script type="text/template" >
 
-                        # Problem
+## Interop in the wild
+
+---
+
+![interop](interop.png)
+
+> map it back and forth!
+</script></section>
+
+<section data-markdown><script type="text/template" >
+
+## Approaches
+
+* use langs like js, lua, java
+* invent a DSL
 
 </script></section>
 
 <section data-markdown><script type="text/template" >
 
-# Solutions
+## Agenda
+
+* HL7v2 parser
+* Jute templating
+* bxb lang
+* isomer lang
+
+> with demos
 
 </script></section>
 
@@ -149,29 +171,215 @@ Craft FHIR-first systems!
 <section data-markdown><script type="text/template" >
 ##  HL7 Parser
 
+---
+
+* Give it names
+* Bottom-Up vs Top-Down Parser
+* Unify messages schema
+* Align naming & structure with FHIR
+
+</script></section>
+
+<section data-markdown><script type="text/template" >
+###  HL7 Parser: give it names
+
+
+```yaml
+ORU_R01:
+  MSH:
+    0: "MSH",
+    1: "|",
+    2: "^~u0026",
+    3: {1: "My EHR"},
+    4: {1: "My Test Facility"}
+
+```
+> does not work properly
+
+</script></section>
+
+<section data-markdown><script type="text/template" >
+###  HL7 Parser: give it names
+
+```yaml
+id: '103102'
+sender:{app: MESA_ADT, facility: XYZ_ADMITTING}
+version:{ id: '2.4'}
+type: {code: ORU, event: R01}
+```
+> Much better!
+
+</script></section>
+
+<section data-markdown><script type="text/template" >
+###  HL7 Parser: give it names
+
+```yaml
+id: '103102'
+sender:{app: MESA_ADT, facility: XYZ_ADMITTING}
+version:{ id: '2.4'}
+type: {code: ORU, event: R01}
+```
+> Much better!
+
+</script></section>
+
+<section data-markdown><script type="text/template" >
+###  HL7 Parser: give it names
+
+![parser](parser.jpg)
+
+> Redox HL7v2 -> Samurai Naming
+
+</script></section>
+
+<section data-markdown><script type="text/template" >
+###  HL7 Parser: Align with FHIR
+
+![parser](v2fhir.jpg)
+
+> FHIR birth secret! [@GrahameGrieve](https://twitter.com/GrahameGrieve)
+</script></section>
+
+<section data-markdown><script type="text/template" >
+###  HL7 Parser: Bottom-Up
+
+![btmu](hl7btmu.png)
+
+>  IN1|IN2|GT1|IN1|IN2|GT1
+
+</script></section>
+
+<section data-markdown><script type="text/template" >
+###  HL7 Parser: Demo
+
+>  same parse for all messages <br/> (ADT, ORU, ORM, DFT)
+
+[demo](http://localhost:8089/static/index.html/#/demo/hl7parser)
+
 </script></section>
 
 
-
 <section data-markdown><script type="text/template" >
-
 ## Jute
 
+----
+
+Unidirectional data templating.
+
+* SDC
+* HL7v2 mapping
+* Custom integrations
+
+[read more](https://bit.ly/3zgndUD)
+
+</script></section>
+
+
+<section data-markdown><script type="text/template" >
+###  Jute
+
+![btmu](jute.jpg)
+
+[read more](https://bit.ly/3zgndUD)
 </script></section>
 
 <section data-markdown><script type="text/template" >
+###  JSON -> EDN
 
+![edn](edn.jpg)
+
+</script></section>
+
+<section data-markdown><script type="text/template" >
+###  Jute
+
+----
+
+[demo](http://localhost:8089/static/index.html/#/demo/jute)
+
+[read more](https://bit.ly/3zgndUD)
+
+</script></section>
+
+<section data-markdown><script type="text/template" >
 ##  bxb
+----
+
+Bi-directional transformation.
+Based on idea of lenses.
+
+* FHIR -> UI -> FHIR
+* FHIR -> BI -> FHIR
+
+[read more](https://bit.ly/3v729wq)
+</script></section>
+
+<section data-markdown><script type="text/template" >
+##  bxb - lenses
+----
+
+![boomerang](boom.jpg)
 
 </script></section>
 
 <section data-markdown><script type="text/template" >
+##  bxb: DSL
+----
 
+```
+path -> path
+path -> path
+```
+
+
+```
+get(prog, src)
+put(prog, dest, src)
+```
+
+[read more](https://bit.ly/3v729wq)
+</script></section>
+
+<section data-markdown><script type="text/template" >
+##  bxb: example
+----
+
+![bxb](bxb.jpg)
+
+[read more](https://bit.ly/3v729wq)
+</script></section>
+
+<section data-markdown><script type="text/template" >
+##  bxb: demo
+----
+
+[demo](http://localhost:8089/static/index.html/#/demo/bxb)
+
+[read more](https://bit.ly/3v729wq)
+</script></section>
+
+<section data-markdown><script type="text/template" >
 ##  Isomer
 
+Safe bidirectional mapping language
+for schema and data.
+
+![isomer](isomer.png)
+
+[read more](https://bit.ly/35h1Sg5)
+
 </script></section>
 
 
+<section data-markdown><script type="text/template" >
+##  Isomer: Operations
+
+![isomer](isomer-ops.png)
+
+[read more](https://bit.ly/35h1Sg5)
+
+</script></section>
 <section data-markdown><script type="text/template">
 ## Thank you!
 
