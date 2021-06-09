@@ -38,23 +38,17 @@
      }
      #logo {
        position: absolute;
-       top: 40px;
+       top: 20px;
        right: 60px;
-       height: 60px;
+       height: 50px;
        z-index: 1000;
      }
      #dd {
-       background: no-repeat url('devdays.svg');
        position: absolute;
-       top: 40px;
-       left: 60px;
+       top: 20px;
+       width: 300px;
+       left: 40px;
        z-index: 1000;
-       height: 50px;
-       width: 150px;
-       padding-left: 56px;
-       padding-top: 2px;
-       font-size: 23px;
-       color: #666;
      }
 
 .reveal .controls .navigate-left, .reveal .controls .navigate-left.enabled
@@ -75,7 +69,7 @@
 
 	<body>
       <a href="https://bit.ly/3zgb3e8"> <img id="logo" src="health-samurai.png"></img> </a>
-  <div id="dd" > DevDays US 2021</div>
+  <img id="dd" src="devdays.jpg"> </div>
 
 		<div class="reveal">
 			<div class="slides">
@@ -91,6 +85,7 @@ Nikolai Ryzhikov CTO (AD) @ Health Samurai
 
 [@niquola](https://bit.ly/3gqyQjg) (tw, gm, gh, tg)
 
+
 </script></section>
 
 <section>
@@ -98,9 +93,11 @@ Nikolai Ryzhikov CTO (AD) @ Health Samurai
 <img style="height: 100px;" src="health-samurai.png"/>
 </a>
 
-<h4 style="color: #555; font-family: 'Gotham Pro',Arial,sans-serif; font-size: 44px; margin: 60px 0;">
-Craft FHIR-first systems!
-</h4>
+<hr/>
+
+<p style="color: #555; font-family: 'Gotham Pro',Arial,sans-serif; font-size: 44px; margin: 60px 0;">
+Craft FHIR-first apps!
+</p>
 
 <style>
  .prods img {
@@ -116,7 +113,6 @@ Craft FHIR-first systems!
 
 
 <section data-markdown><script type="text/template" >
-
 ### [FHIR® meetup: #Profiling](https://bit.ly/3csDKLj)
 
 ---
@@ -137,7 +133,7 @@ Craft FHIR-first systems!
 
 <section data-markdown><script type="text/template" >
 
-## Interop in the wild
+### Real-World Interop
 
 ---
 
@@ -148,16 +144,20 @@ Craft FHIR-first systems!
 
 <section data-markdown><script type="text/template" >
 
-## Approaches
+### Approach by
 
-* use langs like js, lua, java
+---
+
+* use js, lua, java
 * invent a DSL
 
 </script></section>
 
 <section data-markdown><script type="text/template" >
 
-## Agenda
+### Agenda
+
+---
 
 * HL7v2 parser
 * Jute templating
