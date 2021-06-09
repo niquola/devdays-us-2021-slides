@@ -2313,6 +2313,16 @@
 				'currentSlide': currentSlide,
 				'origin': o
 			} );
+
+        var links = document.links;
+
+        for (var i = 0, linksLength = links.length; i < linksLength; i++) {
+            if (links[i].hostname != window.location.hostname) {
+                console.log(links[i]);
+                links[i].target = '_blank';
+            } 
+        }
+
 		}
 		else {
 			// Ensure that the previous slide is never the same as the current

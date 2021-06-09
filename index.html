@@ -128,7 +128,6 @@ Craft FHIR-first apps!
 [Join us on Thu, Jul 8 · 12pm PDT](https://bit.ly/3csDKLj)
 
 
-
 </script></section>
 
 <section data-markdown><script type="text/template" >
@@ -143,7 +142,6 @@ Craft FHIR-first apps!
 </script></section>
 
 <section data-markdown><script type="text/template" >
-
 ### Approach by
 
 ---
@@ -400,7 +398,7 @@ for schema and data.
 		<script>
 
 			// More info https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
+			var deck = Reveal.initialize({
 				controls: true,
 				progress: true,
 				history: true,
@@ -418,6 +416,8 @@ for schema and data.
 					{ src: 'plugin/notes/notes.js', async: true }
 				]
 			});
+
+deck.on( 'slidechanged', () => {console.log( 'Deck 1 slide changed' );} );
 
 		</script>
 
