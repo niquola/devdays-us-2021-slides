@@ -2320,11 +2320,10 @@
             if (links[i].hostname != window.location.hostname) {
                 console.log(links[i]);
                 links[i].target = '_blank';
-            } 
+            }
         }
-
-		}
-		else {
+    }
+    else {
 			// Ensure that the previous slide is never the same as the current
 			previousSlide = null;
 		}
